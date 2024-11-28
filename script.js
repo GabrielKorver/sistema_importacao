@@ -31,14 +31,13 @@ function verificarLogin() {
 // Chama a função de verificação de login ao carregar o script
 verificarLogin();
 
-
-// importação de etiquetas
+// Importação de etiquetas
 
 let importacao = JSON.parse(localStorage.getItem('importacao')) || []; // Carrega dados do localStorage ou cria um array vazio
 
 // Carrega a tabela com os dados armazenados no localStorage
 window.onload = function() {
-    importacao.forEach(rastreio => {
+    importacao.forEach(({ rastreio, cliente }) => {
         let hora = new Date();
         let h = hora.getHours();
         let m = hora.getMinutes();
@@ -53,7 +52,7 @@ window.onload = function() {
 
         tr.innerHTML = `
             <td>${rastreio}</td>
-            <td>Cliente</td>
+            <td>${cliente}</td>
             <td>${h}:${m}:${s}</td>
             <td>${dia}/${mes}/${ano}</td>
             <td>Não Coletado</td>
@@ -77,11 +76,11 @@ function importar() {
         return;
     }
 
-    if (importacao.includes(tbRastreio)) {
+    if (importacao.some(item => item.rastreio === tbRastreio)) {
         alert(`Rastreio já importado: ${tbRastreio}`);
         return;
     } else {
-        importacao.push(tbRastreio); // Adiciona o rastreio ao array
+        importacao.push({ rastreio: tbRastreio, cliente }); // Salva o rastreio e o cliente como objeto
 
         let hora = new Date();
         let h = hora.getHours();
@@ -115,10 +114,9 @@ function importar() {
 
 function deletarImportacao(td) {
     let rastreio = td.parentElement.parentElement.querySelector('td').textContent;
-    importacao = importacao.filter(item => item !== rastreio); // Remove o rastreio do array
+    importacao = importacao.filter(item => item.rastreio !== rastreio); // Remove o rastreio do array
     td.parentElement.parentElement.remove(); // Remove a linha da tabela
 
     // Salva o array atualizado no localStorage
     localStorage.setItem('importacao', JSON.stringify(importacao));
 }
-
