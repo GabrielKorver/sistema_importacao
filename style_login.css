@@ -1,0 +1,26 @@
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: rgba(255, 228, 196, 0.233);
+}
+
+div {
+    width: 250px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.233);
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.39);
+
+}
+
+input {
+    margin: 5px 0; /* Adiciona espaçamento entre os inputs */
+}

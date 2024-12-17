@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enviaí Importação</title>
+    <link rel="shortcut icon" href="./assets/correios-icon.webp" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <a href="https://painel.enviai.com.br/login" target="_blank">Sistema de Postagem</a>
+            <div class="btn-sair" onclick="sair()">
+                <img src="./assets/profile.png" alt="Sair">
+                <span>Sair</span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+
+        <section>
+            <h1>Tabela de Etiquetas dos Correios - PPN</h1>
+
+            <form class="dadosImportacao">
+                <label for="rastreio">Rastreio:</label>
+                <input type="text" id="rastreio" placeholder="AA123456789BR" required>
+
+                <label for="cliente">Cliente:</label>
+                <input type="text" id="cliente" placeholder="LP BEAUTY" required>
+
+                <label for="data">Data:</label>
+                <input type="date" id="data">
+
+                <label for="hora">Hora:</label>
+                <input type="time" id="hora">
+
+                <label for="enviar">Importar</label>
+                <input type="button" value="Importar" onclick="importar()" > 
+
+            </form>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Rastreio</th>
+                        <th>Cliente</th>
+                        <th>Hora</th>
+                        <th>Data</th>
+                        <th>Coletado</th>
+                        <th>Deletar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr id="td">
+                    
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+
+
+    <div id="pagination"></div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
