@@ -126,11 +126,9 @@ function importar() {
 
         // Re-renderiza a tabela
         renderTable();
-<<<<<<< HEAD
-=======
 
         alert('Rastreio Importado com sucesso!');
->>>>>>> 3545c25 (Atualizacao de alerta)
+
     }
 }
 
@@ -143,9 +141,6 @@ function deletarImportacao(td) {
 
     // Re-renderiza a tabela
     renderTable();
-<<<<<<< HEAD
-=======
 
     alert('Rastreio removido com sucesso!')
->>>>>>> 3545c25 (Atualizacao de alerta)
 }
